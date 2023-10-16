@@ -10,3 +10,14 @@ services:
       - POSTGRES_DB=postgres
     ports:
       - 5432:5432
+      
+  PgAdmin4:
+    image: marciokleber/pgadmin4
+    container_name: pgAdmin4
+    environment:
+      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=root@root.com
+    ports:
+      - 8081:80
+    depends_on:
+      - Postgres
